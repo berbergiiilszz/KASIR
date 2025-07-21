@@ -1,83 +1,41 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Manajemen Stok Barang</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stok Barang</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="container">
-    <h1>Manajemen Stok Barang</h1>
+  <header>
+    <h1>📦 Manajemen Stok Barang</h1>
+  </header>
 
-    <!-- Tambah Barang -->
-    <h3>Tambah Barang</h3>
-    <label>Nama Barang</label>
-    <input type="text" id="namaBarang" placeholder="Contoh: Mie">
-    <label>Stok</label>
-    <input type="number" id="stokBarang" placeholder="Contoh: 10">
-    <label>Harga (per item)</label>
-    <input type="number" id="hargaBarang" placeholder="Contoh: 2000">
-    <label>Foto Barang</label>
-    <input type="file" id="fotoBarangFile" accept="image/*">
-    <button class="btn" onclick="tambahBarang()">Tambah Barang</button>
+  <main class="container">
+    <!-- Form Tambah Barang -->
+    <section class="add-item">
+      <h2>Tambah Barang</h2>
+      <input type="text" id="namaBarang" placeholder="Nama barang (misal: Mie)" />
+      <input type="number" id="jumlahBarang" placeholder="Jumlah (misal: 10)" />
+      <input type="number" id="hargaBarang" placeholder="Harga per item (misal: 2000)" />
+      <button id="tambahBarang">Tambah Barang</button>
+    </section>
 
     <!-- Daftar Barang -->
-    <h3>Daftar Barang</h3>
-    <table id="tabelBarang">
-      <thead>
-        <tr>
-          <th>Foto</th>
-          <th>Nama</th>
-          <th>Stok</th>
-          <th>Harga</th>
-          <th>Aksi</th>
-        </tr>
-      </thead>
-      <tbody></tbody>
-    </table>
+    <section class="stock">
+      <h2>Daftar Stok Barang</h2>
+      <ul id="daftarBarang"></ul>
+    </section>
 
     <!-- Pembelian -->
-    <h3>Keranjang Belanja</h3>
-    <label>Cari / Pilih Barang</label>
-    <input type="text" id="inputCariBarang" placeholder="Ketik nama barang...">
-    <div id="suggestions" class="suggestions"></div>
-    <label>Jumlah Beli</label>
-    <input type="number" id="jumlahBeli" placeholder="Contoh: 2">
-    <button class="btn" onclick="tambahKeranjang()">Tambah ke Keranjang</button>
-
-    <table id="tabelKeranjang">
-      <thead>
-        <tr>
-          <th>Foto</th>
-          <th>Barang</th>
-          <th>Jumlah</th>
-          <th>Total Harga</th>
-          <th>Aksi</th>
-        </tr>
-      </thead>
-      <tbody></tbody>
-    </table>
-    <h4 id="totalKeranjang">Total Belanja: Rp 0</h4>
-    <button class="btn" onclick="checkout()">Checkout</button>
-
-    <!-- Riwayat Penjualan -->
-    <h3>Riwayat Penjualan</h3>
-    <table id="tabelPenjualan">
-      <thead>
-        <tr>
-          <th>Foto</th>
-          <th>Tanggal</th>
-          <th>Barang</th>
-          <th>Jumlah</th>
-          <th>Total Harga</th>
-        </tr>
-      </thead>
-      <tbody></tbody>
-    </table>
-    <h4 id="totalPenjualan">Total Pemasukan: Rp 0</h4>
-    <button class="btn btn-reset" onclick="resetSemuaData()">Reset Semua Data</button>
-  </div>
+    <section class="checkout">
+      <h2>Pembelian</h2>
+      <select id="pilihBarang"></select>
+      <input type="number" id="jumlahBeli" placeholder="Jumlah beli" />
+      <button id="beliBarang">Beli</button>
+      <p id="totalHarga"></p>
+    </section>
+  </main>
 
   <script src="script.js"></script>
 </body>
